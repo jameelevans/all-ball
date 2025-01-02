@@ -1,0 +1,444 @@
+@use 'abstracts/mixins' as mixins;
+@use 'base/typography' as typography;
+
+.home-header {
+  .navbar {
+    width: 100%;
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    background: #111111;
+    font-family: typography.$font-primary;
+
+    &__top {
+      display: flex;
+      justify-content: space-between;
+      padding: 2.5rem 1.2rem;
+      align-items: center;
+
+      @media (max-width: 500px) {
+        padding: 1rem 0;
+      }
+    }
+
+    &__bottom {
+      display: none;
+      animation: none;
+
+      @include mixins.respond(medlg) {
+        display: block;
+      }
+
+      .nav {
+        display: none;
+
+        @include mixins.respond(medlg) {
+          display: block;
+        }
+      }
+    }
+
+    &__bottom .sticky-menu {
+      background: #fff;
+    }
+    //Apply stlyes when sticky-menu is active
+    .sticky-menu {
+      position: fixed !important;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #fff;
+      box-shadow: 0 7px 12px 0 rgba(0, 0, 0, 0.162);
+      z-index: 50;
+      animation: slideDownn 500ms ease;
+      display: block;
+
+      .logo-sticky {
+        display: block;
+
+        img {
+          width: 15rem;
+          padding: 1rem 0;
+        }
+      }
+
+      .nav__item {
+        color: #111111;
+        transition: all 0.4s;
+      }
+
+      // Apply search style when sticky menu is active
+
+      .search-part {
+        border: 1px solid #111111;
+        .search-input {
+          color: #111111;
+        }
+
+        .search-input-div-icon {
+          color: #111111;
+        }
+      }
+    }
+
+    .subscribe-btn {
+      border: 1px solid #2a2a2a;
+      border-radius: 0;
+      padding: 1rem 2.5rem;
+      font-size: 1.4rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: #fff;
+      transition: background 400ms;
+      text-decoration: none;
+      display: none;
+
+      &:hover,
+      &:focus {
+        background: var(--color-red);
+      }
+
+      @include mixins.respond(small) {
+        display: block;
+      }
+    }
+
+    .logo {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%);
+      padding: 0 !important;
+      width: auto;
+      display: none;
+
+      img {
+        width: 100%;
+      }
+
+      @include mixins.respond(large) {
+        width: 235px;
+        display: block;
+      }
+
+      @include mixins.respond(largest) {
+        width: auto;
+        display: block;
+      }
+    }
+
+    .logo-general {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%);
+      padding: 0 !important;
+      width: 24.2rem;
+      display: none;
+
+      img {
+        width: 100%;
+      }
+
+      @include mixins.respond(large) {
+        display: block;
+      }
+
+      @include mixins.respond(largest) {
+        display: block;
+      }
+    }
+
+    .logo2 {
+      margin: 0;
+      width: auto;
+      display: block;
+
+      img {
+        width: 70%;
+
+        @include mixins.respond(small) {
+          width: 100%;
+        }
+      }
+
+      @include mixins.respond(large) {
+        display: none;
+      }
+    }
+
+    .logo-sticky {
+      display: none;
+    }
+
+    &__inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 3rem;
+
+      .search-part {
+        margin-left: 0;
+        border-radius: 0;
+        padding: 10px 10px;
+        display: none;
+
+        @include mixins.respond(medlg) {
+          display: block;
+        }
+
+        .search-input-div {
+          font-size: 1.5rem;
+
+          &-icon {
+            color: #ffffff;
+            transform: translateY(-2px);
+          }
+        }
+      }
+
+      .hamburger-menu {
+        display: block;
+
+        @include mixins.respond(medlg) {
+          display: none;
+        }
+
+        .hamburger-menu-inner span {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 2px;
+          transition: all 0.2s, background 0s;
+          background: #111111;
+        }
+
+        .hamburger-menu-inner span:nth-child(2) {
+          top: 6px;
+        }
+
+        .hamburger-menu-inner span:last-child {
+          top: 12px;
+        }
+      }
+
+      .search {
+        display: none;
+
+        @include mixins.respond(medlg) {
+          display: block;
+        }
+
+        &-input {
+          background: transparent;
+          color: #fff;
+          border: none;
+          outline: none;
+          margin: 0;
+          font-family: inherit;
+          font-size: 1.6rem;
+          line-height: inherit;
+
+          &:placeholder-shown {
+            font-weight: 600;
+            width: 100px;
+          }
+        }
+      }
+    }
+
+    .nav {
+      &__menu {
+        display: flex;
+        flex-direction: row;
+        max-height: 100%;
+        overflow: visible;
+
+        li {
+          list-style: none;
+          position: relative;
+          white-space: nowrap;
+          padding: 2rem 0.5rem;
+        }
+      }
+
+      &__item {
+        padding: 20px 25px;
+        letter-spacing: 1px;
+        font-size: 14px;
+        line-height: 18px;
+        text-transform: uppercase;
+        color: #fff;
+        font-weight: 500;
+        list-style: none;
+        white-space: nowrap;
+        text-decoration: none;
+        transition: color 200ms;
+
+        @media screen and (max-width: 1100px) and (min-width: 1000px) {
+          font-size: 12px;
+          padding: 20px 20px;
+        }
+
+        &:hover,
+        &:focus {
+          color: var(--color-red);
+        }
+      }
+
+      &__item:first-child {
+        padding-left: 0 !important;
+      }
+    }
+  }
+
+  .navbar-item {
+    width: 50px;
+    height: 50px;
+    border-radius: 0;
+    border: 1px solid #2a2a2a;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    cursor: pointer;
+    transition: all 0.4s;
+
+    &:hover,
+    &:focus {
+      background: var(--color-red);
+    }
+  }
+
+  .hamburger-menu-inner {
+    position: relative;
+    width: 16px;
+    height: 14px;
+    cursor: pointer;
+  }
+
+  /* When the menu is active (toggle class applied) */
+  .hamburger-menu-inner.active span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+
+  .hamburger-menu-inner.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger-menu-inner.active span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  .hamburger-menu-inner span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 2px;
+    transition: all 0.2s, background 0s;
+    background: #fff;
+  }
+
+  .hamburger-menu-inner span:nth-child(2) {
+    top: 6px;
+  }
+  .hamburger-menu-inner span:last-child {
+    top: 12px;
+  }
+
+  .slide-bar {
+    position: fixed;
+    overflow: hidden;
+    top: 0;
+    right: -150%; //offscreen until menu button is clicked
+    width: 350px;
+    padding: 30px 30px;
+    padding-top: 20px;
+    height: 100%;
+    display: block;
+    background-color: #111111;
+    z-index: 1900;
+    transition: all 600ms ease;
+    box-shadow: -5px 0 20px -5px rgba(0, 0, 0, 0.5);
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+
+    .offset-sidebar {
+      position: relative;
+    }
+
+    .offset-widget.offset-logo {
+      padding-top: 90px;
+      padding-bottom: 50px;
+      text-align: center;
+    }
+
+    &-close {
+      position: absolute;
+      top: -13px;
+      right: -20px;
+      transform: scale(70%);
+      padding: 15px 25px;
+      background: #fff;
+      display: grid;
+      place-items: center;
+      transition: color 300ms;
+      color: var(--color-black); /* Initial color */
+
+      &:hover,
+      &:focus {
+        color: var(--color-red);
+      }
+    }
+
+    &-close-icon {
+      font-size: 3rem;
+      fill: currentColor; /* Makes the SVG icon inherit the color */
+    }
+
+    .side-mobile-menu ul {
+      list-style: none;
+    }
+
+    .side-mobile-menu ul li a {
+      padding: 20px 0;
+      color: #fff;
+      display: block;
+      border-bottom: 1px solid rgba(40, 40, 40, 0.5);
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      position: relative;
+      transition: all 300ms;
+      text-decoration: none;
+
+      &:hover,
+      &:focus {
+        color: var(--color-red);
+      }
+    }
+
+    .side-bar-social-links {
+      margin-top: 70px;
+      display: flex;
+      justify-content: center;
+      z-index: 1;
+      position: relative;
+    }
+  }
+
+  .show {
+    right: 0;
+  }
+}
+
+.general .header {
+}
+
+.current-page {
+  color: var(--color-red) !important;
+}

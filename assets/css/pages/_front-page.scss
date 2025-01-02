@@ -1,0 +1,210 @@
+@use 'abstracts/mixins' as mixins;
+@use 'base/typography' as typo;
+
+.section-title-area {
+  margin-bottom: 40px;
+}
+
+.trending-news {
+  padding: 4rem 0;
+  background-color: #111;
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 2rem;
+
+    @include mixins.respond(small) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: auto;
+    }
+
+    @include mixins.respond(medlg) {
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(2, auto);
+    }
+
+    .post {
+      position: relative; // For layering
+      overflow: hidden;
+
+      .post-image {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .post-overlay {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        height: 100%;
+
+        .gradient {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 100%; // Adjust gradient height
+          background-image: linear-gradient(
+            0deg,
+            rgb(0, 0, 0) 25%,
+            rgba(0, 0, 0, 0) 100%
+          );
+          z-index: 1;
+        }
+
+        .post-content {
+          position: relative;
+          padding: 1.5rem;
+          z-index: 2; // Ensures text is above the gradient
+          color: #fff;
+
+          .post-category {
+            display: inline-block;
+            font-size: 1.2rem;
+            color: #fff;
+            font-family: typo.$font-secondary;
+            background: var(--color-red);
+            padding: 0.5rem 1rem;
+            margin: 9rem 1.5rem 1.4rem 0;
+            text-transform: uppercase;
+          }
+
+          .post-date {
+            display: inline-block;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            font-family: typo.$font-secondary;
+            color: var(--color-white);
+            margin-bottom: 0.5rem;
+          }
+
+          .post-title-wrapper {
+            margin-bottom: 1.5rem;
+          }
+
+          .post-title {
+            display: inline;
+            font-size: 2rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+            color: #fff;
+            text-decoration: none;
+            background-size: 200% 2px;
+            background-position: 100% 100%;
+            background-repeat: no-repeat;
+            background-image: linear-gradient(
+              to right,
+              var(--color-red) 50%,
+              transparent 50%
+            );
+            transition: all 500ms;
+
+            &:hover {
+              color: var(--color-red);
+              background-position: 0% 100%;
+            }
+          }
+
+          .post-link {
+            font-size: 1.4rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: var(--color-white);
+            text-decoration: none;
+            position: relative;
+            transition: all 0.4s;
+
+            &:hover::before {
+              width: 100%;
+              background: var(--color-red);
+            }
+
+            &::before {
+              position: absolute;
+              content: '';
+              width: 50%;
+              height: 1px;
+              background: #fff;
+              left: 0;
+              bottom: -5px;
+              transition: all 0.4s;
+            }
+
+            &:hover {
+              color: var(--color-red);
+            }
+          }
+        }
+      }
+    }
+
+    // First post spans two columns and two rows
+    .post:first-child {
+      grid-column: span 1;
+
+      @include mixins.respond(small) {
+        grid-column: span 2;
+      }
+    }
+
+    // Last post spans two columns
+    .post:last-child {
+      grid-column: span 1;
+
+      @include mixins.respond(small) {
+        grid-column: span 2;
+      }
+    }
+  }
+}
+
+.goat-section.video-section-2 {
+  background: url(assets/img/basket-ball-court.jpg);
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  padding: 150px 0;
+  background-blend-mode: luminosity;
+  z-index: 1;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(5, 5, 5);
+    opacity: 0.749;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+
+  .video-section-inner {
+    padding: 80px 0;
+  }
+
+  .title {
+    color: var(--color-white);
+    font-size: 4.8rem;
+    font-weight: 500;
+    margin-bottom: 3rem;
+  }
+}

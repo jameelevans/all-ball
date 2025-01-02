@@ -1,0 +1,11 @@
+@use "abstracts/variables" as vars;
+
+.news-catagory-tag {
+    font-size: 12px;
+    color: #fff;
+    font-weight: 600;
+    background: var(--color-red);
+    padding: 2px 10px;
+    border-radius: 0;
+    display: inline;
+}

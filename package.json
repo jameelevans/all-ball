@@ -1,0 +1,38 @@
+{
+  "name": "all-ball-sports",
+  "version": "1.0.0",
+  "description": "A modern WordPress theme with Gulp for development workflow.",
+  "main": "index.js",
+  "scripts": {
+    "gulpwatch": "gulp watch",
+    "gulpstyles": "gulp styles",
+    "gulpscripts": "gulp scripts"
+  },
+  "author": "Jameel Evans",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.22.11",
+    "@babel/preset-env": "^7.22.11",
+    "autoprefixer": "^10.4.20",
+    "browser-sync": "^3.0.3",
+    "cssnano": "^7.0.6",
+    "fancy-log": "^2.0.0",
+    "gulp": "^5.0.0",
+    "gulp-postcss": "^10.0.0",
+    "gulp-sass": "^6.0.0",
+    "plugin-error": "^2.0.1",
+    "postcss": "^8.4.23",
+    "postcss-combine-media-query": "^1.0.0",
+    "sass": "^1.63.6",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1"
+  },
+  "dependencies": {
+    "axios": "^1.7.9",
+    "jquery": "^3.7.1",
+    "postcss-sort-media-queries": "^5.2.0",
+    "send": "^1.1.0",
+    "serve-static": "^1.16.2",
+    "waypoints": "^4.0.1"
+  }
+}

@@ -1,0 +1,63 @@
+@use 'abstracts/mixins' as mixins;
+
+.breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  font-size: 1.4rem;
+  line-height: 1.2;
+  color: var(--color-white); // Default text color
+  place-content: center;
+
+  @include mixins.respond(small) {
+    place-content: unset;
+  }
+
+  a {
+    color: var(--color-white); // Link color
+    margin-right: 0.5rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+
+    &:hover,
+    &:focus {
+      color: var(--color-red); // Hover color
+    }
+
+    &:not(:first-of-type) {
+      margin-left: 0.5rem;
+    }
+  }
+
+  span {
+    color: var(--color-red); // Non-link text color
+    text-transform: uppercase;
+    margin-left: 0.5rem;
+  }
+
+  & > *:last-child {
+    font-weight: bold;
+  }
+}
+
+.news-single .breadcrumbs {
+  color: var(--color-black); // Default text color
+  margin-block-end: 2rem;
+  font-size: 1.3rem;
+  place-content: unset;
+  a {
+    color: var(--color-black); // Link color
+
+    &:hover,
+    &:focus {
+      color: var(--color-red); // Hover color
+    }
+  }
+  span {
+    color: var(--color-grey); // Non-link text color
+  }
+  & > *:last-child {
+    font-weight: 100;
+  }
+}

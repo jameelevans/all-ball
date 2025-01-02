@@ -1,0 +1,58 @@
+@use "abstracts/mixins" as mixins;
+
+.general{
+
+    #goat-content{
+        border: 1px solid #ececec;
+        padding: 2.5rem;
+        margin: 4.5rem;
+        max-width: 124rem; 
+        margin-left: auto; 
+        margin-right: auto; 
+        width: 90%;
+
+
+    @include mixins.respond(large){
+        padding: 4.5rem;
+      }
+    }
+
+    #main-content{
+        border: 1px solid #ececec;
+        padding: 2.5rem;
+        margin: 4.5rem;
+        max-width: 124rem; 
+        margin-left: auto; 
+        margin-right: auto; 
+        width: 90%;
+
+
+    @include mixins.respond(small){
+        padding: 4.5rem;
+      }
+    }
+    
+}
+
+.social-share{
+
+
+  ul{
+    display: flex;
+    justify-content: end;
+    list-style: none;
+  }
+
+  li{
+    padding: 0 20px 0 0;
+    font-size: 2rem;
+  }
+
+  a{
+    color: #b9b9b9;
+    transition: color 0.3s ease;
+    &:hover {
+      color: var(--color-red);
+  }
+  }
+}

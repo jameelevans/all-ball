@@ -1,0 +1,51 @@
+.error-area {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+    .section-inner {
+      width: 100%;
+
+      text-align: center;
+
+
+      .page-title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 65px;
+        color: #111111;
+    font-weight: 700;
+    font-size: 50px;
+    }
+
+    .text {
+      font-size: 140px;
+  }
+
+      .zero {
+        color: var(--color-red);
+    }
+
+    .title {
+      margin-bottom: 40px;
+    }
+
+    .sub-title {
+      font-size: 48px;
+      font-weight: bold;
+      padding-bottom: 30px;
+  }
+
+  .sect-title {
+    font-size: 18px;
+    font-weight: 300;
+    color: #666666;
+    line-height: 28px;
+    font-family: "Roboto";
+}
+
+
+  }
+}
+
