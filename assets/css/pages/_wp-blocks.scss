@@ -15,7 +15,7 @@ $border-radius: 5px;
 // General Block Styles
 
 p {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   margin: 1rem 0;
   color: var(--color-black);
   font-family: typo.$font-secondary;
@@ -41,7 +41,7 @@ h3.wp-block-heading {
   border-left: 1px solid var(--color-red);
   display: inline-block;
   font-family: Roboto, sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   padding: 0.5rem 1rem;
   text-transform: uppercase;
 }
@@ -92,8 +92,8 @@ h6.wp-block-heading {
 }
 
 .wp-block-list {
-  padding-left: 4.5rem;
-  font-size: 1.5rem;
+  padding-left: 1.5rem;
+  font-size: 1.6rem;
   margin: 1rem 0;
   color: var(--color-black);
   font-family: typo.$font-secondary;
@@ -104,6 +104,9 @@ h6.wp-block-heading {
   }
 
   li {
+    &::marker {
+      color: var(--color-red); /* Change the marker color */
+    }
     a {
       color: var(--color-red);
     }

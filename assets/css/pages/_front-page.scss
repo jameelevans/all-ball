@@ -155,7 +155,7 @@
     }
 
     // First post spans two columns and two rows
-    .post:first-child {
+    .first {
       grid-column: span 1;
 
       @include mixins.respond(small) {
@@ -164,7 +164,7 @@
     }
 
     // Last post spans two columns
-    .post:last-child {
+    .last {
       grid-column: span 1;
 
       @include mixins.respond(small) {
@@ -184,6 +184,10 @@
   padding: 150px 0;
   background-blend-mode: luminosity;
   z-index: 1;
+
+  @media (max-width: 600px) {
+    padding: 1rem 0;
+  }
 
   &::before {
     content: '';

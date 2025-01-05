@@ -41,6 +41,7 @@
                         <li class="widget-list-item"><a href="<?php echo esc_url(site_url('/goat-calculator/')); ?>">Goat Calculator</a></li>
                         <li class="widget-list-item"><a href="<?php echo esc_url(site_url('/news/')); ?>">News</a></li>
                         <li class="widget-list-item"><a href="<?php echo esc_url(site_url('/about-us/')); ?>">About</a></li>
+                        <li class="widget-list-item"><a href="<?php echo esc_url(site_url('/contact-us/')); ?>">Contact</a></li>
                     </ul>
                 </div>
             
@@ -68,7 +69,10 @@
                             ?>
                             <div class="picture">
                                 <a href="<?php the_permalink(); ?>">
-                                    <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
+                                <img 
+                                src="<?php echo esc_url( get_the_post_thumbnail_url( get_the_ID(), 'small' ) ); ?>" 
+                                alt="<?php the_title_attribute(); ?>"
+                                >
                                 </a>
                             </div>
                             <?php
@@ -89,7 +93,17 @@
         <div class="footer-bottom-area">
             <div class="container">
                 <div class="bottom-area-inner">
-                    <span class="copyright">BALL NEVER STOP <span class="brand">ALL BALL SPORTS</span> - 2024</span>
+                    <span class="copyright">
+                        <?php 
+                            // Fetch the site tagline from the WordPress customizer.
+                            echo get_bloginfo( 'description' ); 
+                        ?> 
+                        <span class="brand">ALL BALL SPORTS</span>
+                        <?php
+                            // Dynamically output the current year.
+                            echo date( 'Y' );
+                        ?>
+                    </span>
                 </div>
             </div>
         </div>

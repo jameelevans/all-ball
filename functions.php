@@ -77,8 +77,7 @@ function allball_theme_setup() {
         'x-small' => [480, 270, true],       // Extra Small (cropped)
         'small' => [640, 360, true],         // Small size (cropped)
         'medium' => [1280, 720, true],       // Medium size (cropped)
-        'large' => [1920, 1080, true],       // Large size (cropped)
-        'full-hd' => [2560, 1440, false]     // Full-HD size (no cropping, maintain aspect ratio)
+        'large' => [1920, 1080, true]       // Large size (cropped)
     );
 
     // Register each size
@@ -672,7 +671,7 @@ function display_news_top_section() {
 
     ob_start(); // Start output buffering
     ?>
-        <span class="author"><?php echo svg_icon('author-icon', 'user');?>By <a href="<?php echo esc_url(get_author_posts_url(get_the_author_meta('ID'))); ?>"><?php echo esc_html(get_the_author()); ?></a> on
+        <span class="author"><?php echo svg_icon('author-icon', 'user');?>By <strong><em><?php echo esc_html(get_the_author()); ?></em></strong> on
         <?php echo esc_html(get_the_date('F j, Y')); ?></span>
         <span class="viewers"><?php echo svg_icon('viewers-icon', 'eye');?> <?php echo esc_html($views); ?> Views</span>
         <span class="comments"><?php echo svg_icon('comments-icon', 'comments');?> 

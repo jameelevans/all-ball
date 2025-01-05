@@ -138,22 +138,25 @@
 			<!-- Banner -->
 			<section class="banner">
 				<div class="banner__single">
-					<?php if (is_front_page()) : ?>
-						<div class="video-section-inner text-center">
-							<div class="play-video">
-								<?php
-								$home_id = get_option('page_on_front');
-								$youtube_link = get_field('banner_youtube_link', $home_id);
-								if ($youtube_link) {
-									$embed_link = str_replace('watch?v=', 'embed/', $youtube_link);
-								}
-								?>
-								<a class="popup-video" href="#" data-video="<?php echo esc_url($embed_link); ?>">
-									<?php echo svg_icon('popup-video-icon', 'play'); ?>
-								</a>
+				<?php 
+					if (is_front_page()) :
+						$home_id = get_option('page_on_front');
+						$youtube_link = get_field('banner_youtube_link', $home_id);
+
+						if ($youtube_link) : 
+							$embed_link = str_replace('watch?v=', 'embed/', $youtube_link);
+					?>
+							<div class="video-section-inner text-center">
+								<div class="play-video">
+									<a class="popup-video" href="#" data-video="<?php echo esc_url($embed_link); ?>">
+										<?php echo svg_icon('popup-video-icon', 'play'); ?>
+									</a>
+								</div>
 							</div>
-						</div>
-					<?php endif; ?>
+					<?php 
+						endif;
+					endif; 
+					?>
 					<div class="container">
 						<div class="banner-content">
 							<div class="flex-wrap d-flex">
